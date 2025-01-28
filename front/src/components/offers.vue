@@ -80,12 +80,14 @@ export default {
 
 <style scoped>
 .offers-container {
-  margin: 40px auto;
+  margin: 70px auto;
   max-width: 1200px;
   padding: 20px;
   border-radius: 12px;
-  background: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background:rgba(249, 249, 249, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+  z-index: 1;
+  position: relative;
 }
 
 .offers-title {
