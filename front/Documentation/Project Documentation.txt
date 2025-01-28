@@ -1,0 +1,174 @@
+Project Documentation
+
+1. Project Overview
+
+Project Name: Value Tickets
+
+Description: Value Tickets is a flight booking website tailored for users in the USA. It simplifies the process of searching for, comparing, and booking flights by providing a user-friendly interface and seamless functionality. The platform aims to make air travel affordable and accessible while delivering a smooth user experience.
+
+Team Members: Udit Singh, Anish, Priyanshi, Zainab, Shivam, Namrata
+
+Technology Stack:
+
+Vue.js: For building the user interface.
+
+Axios: For handling API requests.
+
+Node.js: For back-end services.
+
+_______: For database management.
+
+______ CSS: For styling and responsive design.
+
+_______: For authentication and hosting services.
+
+2. Project Objectives
+
+Goals:
+
+Create an intuitive platform for booking flights within and from the USA.
+
+Integrate advanced search and filtering options for user convenience.
+
+Provide secure and fast booking with various payment options.
+
+Ensure high performance and reliability with scalable architecture.
+
+Target Audience:
+
+All U.S. citizens and residents seeking affordable and reliable flight booking services.
+
+3. Installation Guide
+
+Prerequisites:
+
+Node.js installed on your system.
+
+A code editor like Visual Studio Code.
+
+Internet connection for fetching dependencies.
+
+Steps:
+
+Clone the repository: git clone <repository_url>
+
+Navigate to the project directory: cd front
+
+Install dependencies: npm install
+
+Start the development server: npm run dev
+
+Access the application at http://localhost:7007
+
+Commands:
+
+npm run build: Builds the app for production.
+
+4. Project Structure
+
+Directory Layout:
+
+src/:
+
+components/: Reusable Vue components.
+
+views/: Pages and layouts of the application.
+
+assets/: Images, icons, and other static files.
+
+router/: Configuration for application routing.
+
+public/: Publicly accessible static files.
+
+5. API Documentation
+
+To be finalized based on integrated APIs.
+
+6. Features and Usage
+
+User Guide:
+
+Users can search for flights by entering departure and arrival locations, dates, and passenger details.
+
+Filter results by price, airline, duration, and more.
+
+Book tickets securely with multiple payment options.
+
+7. Development Workflow
+
+Version Control:
+
+Clone, branch, and merge using Git.
+
+Follow the feature-branch workflow for collaborative development.
+
+Coding Standards:
+
+Adhere to Vue.js best practices.
+
+Testing:
+
+Integration tests for API calls.
+
+8. Deployment
+
+Environment Variables:
+
+API keys for external services.
+
+Configuration for _ hosting.
+
+Build Process:
+
+Run npm run build to generate production-ready files.
+
+Deploy to a hosting service.
+
+9. Contributing
+
+How to Contribute:
+
+Fork the repository and create a feature branch.
+
+Commit changes with descriptive messages.
+
+Submit a pull request for review.
+
+Issues:
+
+Report bugs or suggest features via the GitHub issue tracker.
+
+Pull Requests:
+
+Ensure all tests pass before submitting.
+
+Provide a clear description of the implemented changes.
+
+10. Future Enhancements
+
+Planned Features:
+
+Mobile app for Android and iOS.
+
+Feedback and Suggestions:
+
+Users can submit feedback through the contact form.
+
+11. References
+
+Documentation Links:
+
+Vue.js: https://vuejs.org
+
+Axios: https://axios-http.com
+
+Resources:
+
+Flight API documentation (to be finalized).
+
+12. Contact Information
+
+Maintainers: AIPL
+
+Channels: Email 
+
