@@ -125,14 +125,14 @@ body {
 .faq-item {
   margin-bottom: 15px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 2px;
   overflow: hidden;
   background-color: #fafafa;
   transition: box-shadow 0.3s ease;
 }
 
 .faq-item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .faq-question {
