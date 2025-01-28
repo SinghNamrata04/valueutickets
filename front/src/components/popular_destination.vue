@@ -24,26 +24,33 @@
 </template>
 
 <script>
+// Importing images
+import LondonImage from '@/assets/footer/London_D.jpg';
+import ParisImage from '@/assets/footer/Paris_D.jpg';
+import JapanImage from '@/assets/footer/japan_D.jpg';
+import CancunImage from '@/assets/footer/Cancun_D.jpg';
+import SanJuanImage from '@/assets/footer/maxico_D.jpg';
+
 export default {
   data() {
     return {
       showAll: false,
       destinations: [
-        { name: "London, United Kingdom", image: require('@/assets/images/London_D.jpg'), isLarge: false },
-        { name: "Paris, France", image: require('@/assets/images/Paris_D.jpg'), isLarge: true },
-        { name: "Japan, Tokyo", image: require('@/assets/images/japan_D.jpg'), isLarge: false },
-        { name: "Cancun, Mexico", image: require('@/assets/images/Cancun_D.jpg'), isLarge: false },
-        { name: "San-Jaun, Puerto Rico", image: require('@/assets/images/maxico_D.jpg'), isLarge: false },
-        { name: "London, United Kingdom", image: require('@/assets/images/London_D.jpg'), isLarge: false },
-        { name: "Paris, France", image: require('@/assets/images/Paris_D.jpg'), isLarge: true },
-        { name: "Japan, Tokyo", image: require('@/assets/images/japan_D.jpg'), isLarge: false },
-        { name: "Cancun, Mexico", image: require('@/assets/images/Cancun_D.jpg'), isLarge: false },
-        { name: "San-Jaun, Puerto Rico", image: require('@/assets/images/maxico_D.jpg'), isLarge: false },
-        { name: "London, United Kingdom", image: require('@/assets/images/London_D.jpg'), isLarge: false },
-        { name: "Paris, France", image: require('@/assets/images/Paris_D.jpg'), isLarge: true },
-        { name: "Japan, Tokyo", image: require('@/assets/images/japan_D.jpg'), isLarge: false },
-        { name: "Cancun, Mexico", image: require('@/assets/images/Cancun_D.jpg'), isLarge: false },
-        { name: "San-Jaun, Puerto Rico", image: require('@/assets/images/maxico_D.jpg'), isLarge: false }
+        { name: "London, United Kingdom", image: LondonImage, isLarge: false },
+        { name: "Paris, France", image: ParisImage, isLarge: true },
+        { name: "Japan, Tokyo", image: JapanImage, isLarge: false },
+        { name: "Cancun, Mexico", image: CancunImage, isLarge: false },
+        { name: "San-Jaun, Puerto Rico", image: SanJuanImage, isLarge: false },
+        { name: "London, United Kingdom", image: LondonImage, isLarge: false },
+        { name: "Paris, France", image: ParisImage, isLarge: true },
+        { name: "Japan, Tokyo", image: JapanImage, isLarge: false },
+        { name: "Cancun, Mexico", image: CancunImage, isLarge: false },
+        { name: "San-Jaun, Puerto Rico", image: SanJuanImage, isLarge: false },
+        { name: "London, United Kingdom", image: LondonImage, isLarge: false },
+        { name: "Paris, France", image: ParisImage, isLarge: true },
+        { name: "Japan, Tokyo", image: JapanImage, isLarge: false },
+        { name: "Cancun, Mexico", image: CancunImage, isLarge: false },
+        { name: "San-Jaun, Puerto Rico", image: SanJuanImage, isLarge: false }
       ]
     };
   },
