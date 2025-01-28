@@ -30,24 +30,24 @@ export default {
     return {
       offers: [
         {
-          title: "Beach Paradise",
-          description: "Enjoy 20% off on beach resorts.",
-          image: "/images/beach.jpg", // Replace with your image path
+          
+          description: "Register & Get Discount on Booking First Flight With Us.",
+          image: "/images/12percent.png", // Replace with your image path
         },
         {
-          title: "Mountain Adventure",
-          description: "Explore the mountains with exclusive deals.",
-          image: "/images/dark.jpg",
+          
+          description: "Register & Get Discount on Booking First Flight With Us.",
+          image: "/images/mmt12.jpg",
         },
         {
-          title: "City Getaway",
-          description: "Discover city life with amazing discounts.",
-          image: "/images/city.jpg",
+          
+          description: "Register & Get Discount on Booking First Flight With Us.",
+          image: "/images/paytm.jpg",
         },
         {
-          title: "Tropical Escape",
-          description: "Book now and save on tropical vacations.",
-          image: "/images/tropical.jpg",
+        
+          description: "Register & Get Discount on Booking First Flight With Us.",
+          image: "/images/mmt.jpg",
         },
         {
           title: "Luxury Cruise",
