@@ -100,7 +100,7 @@ nav {
   align-items: center;
   padding: 15px 50px;
   position: relative;
-  /* background-color: #0056b3; */
+  background-color: #F9F2F2;
 }
 
 .logo img {
@@ -108,7 +108,6 @@ nav {
   /* height: auto; */
   /* padding-left: 50px; */
 }
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -124,10 +123,30 @@ nav {
   color: black;
   font-size: 20px;
   font-weight: bold;
+  /* padding: 8px 2px; */
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, 
+  text-decoration 0.3s ease-in-out;
+  /* background-color: #0056b3; */
 }
 
-.nav-links a:hover {
+
+.nav-links a.active {
+  background-color: #0056b3;
+  color: white;
   text-decoration: underline;
+}
+
+
+.nav-links a:hover {
+  
+  color: white;
+  text-decoration: underline;
+  background-color: black;
+  color: white; 
+  padding: 2px 1px; 
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .login-btn {
@@ -141,7 +160,12 @@ nav {
 }
 
 .login-btn:hover {
-  background-color: #0056b3;
+  text-decoration: underline;
+  background-color: black;
+  color: white; 
+  /* padding: 2px 5px;  */
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .vertical-bar {
@@ -158,6 +182,16 @@ nav {
   width: 35px;
   height: 35px;
   margin-right: -0px;
+  border: #0056b3;
+  /* border: 1px solid black; */
+}
+
+.dropdown img:hover
+{
+  /* transform: translateY(-5px); */
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.2);
+  
 }
 
 .dropdown-toggle {
@@ -189,14 +223,18 @@ nav {
 .dropdown-menu {
   display: none;
   position: absolute;
-  /* top: 150px; */
+  top: 70px;
   left: -30px; /* Set left to 50px */
-  background-color: rgb(198, 6, 6);
+  
   /* border-radius: 5px; */
   /* z-index: 10; */
-  background-color: transparent; 
-  border: none; 
+  /* background-color: transparent;  */
+  background-color: #F9F2F2;
+  /* border: none;  */
   box-shadow: none; 
+  /* text-align: center; */
+  width: 100%;
+
 }
 
 
@@ -207,8 +245,9 @@ nav {
 .dropdown-menu li {
   padding: 5px 10px;
   cursor: pointer;
-  background-color: transparent; 
+  /* background-color: transparent;  */
   /* background-color: #0056b3 */
+  left: -40px;
 }
 
 
