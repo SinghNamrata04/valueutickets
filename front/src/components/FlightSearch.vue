@@ -66,6 +66,15 @@
             </div>
           </div>
 
+          <!-- For Round Trip, show additional fields -->
+          <div class="form-group" v-if="travelType === 'roundTrip'">
+            <label>Return Date</label>
+            <div class="input-with-icon">
+              <i class="fas fa-calendar-alt"></i>
+              <input type="date" v-model="returnDate" />
+            </div>
+          </div>
+
           <div class="form-group" v-if="travelType === 'oneWay' || travelType === 'roundTrip' || travelType === 'multiCity'">
             <label>Person</label>
             <div class="input-with-icon">
@@ -75,15 +84,6 @@
                 <option>2 Economy</option>
                 <option>3 Economy</option>
               </select>
-            </div>
-          </div>
-
-          <!-- For Round Trip, show additional fields -->
-          <div class="form-group" v-if="travelType === 'roundTrip'">
-            <label>Return Date</label>
-            <div class="input-with-icon">
-              <i class="fas fa-calendar-alt"></i>
-              <input type="date" v-model="returnDate" />
             </div>
           </div>
 
@@ -244,6 +244,7 @@ body {
 /* Container and Background */
 .container {
   min-height: 100vh; /* Ensures it spans the viewport */
+  width: 100%; /* Ensures it spans the full width of the viewport */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,6 +252,13 @@ body {
   position: relative; /* For layered positioning */
   overflow: hidden; /* Prevent any unwanted overflow */
 }
+
+/* Image inside the container */
+.container img {
+  width: 100%; /* Ensures the image takes full width */
+  height: auto; /* Maintain aspect ratio */
+}
+
 
 .background-image {
   width: 100%;
