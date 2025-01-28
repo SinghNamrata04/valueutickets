@@ -1,4 +1,4 @@
-import 'font-awesome/css/font-awesome.min.css'; // Add this import line
+// import 'font-awesome/css/font-awesome.min.css'; 
 //import './assets/main.css'
 
 import { createApp } from 'vue'
