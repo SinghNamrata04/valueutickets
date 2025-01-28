@@ -246,6 +246,7 @@ body {
   min-height: 100vh; /* Ensures it spans the viewport */
   width: 100%; /* Ensures it spans the full width of the viewport */
   display: flex;
+  max-width: 2000px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
