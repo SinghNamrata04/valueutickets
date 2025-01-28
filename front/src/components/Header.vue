@@ -141,10 +141,8 @@ nav {
 
 .nav-links a:hover {
   
-  color: white;
   text-decoration: underline;
-  background-color: black;
-  color: white; 
+  font-weight: 800;
   padding: 2px 1px; 
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease; 
@@ -161,8 +159,7 @@ nav {
 }
 
 .login-btn:hover {
-  text-decoration: underline;
-  background-color: black;
+  background-color: #0056b3;
   color: white; 
   /* padding: 2px 5px;  */
   border-radius: 20px;

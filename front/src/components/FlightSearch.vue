@@ -1,3 +1,6 @@
+<script setup>
+import test from '../components/test.vue'
+</script>
 <template>
   <div class="container">
     <!-- Background Section -->
@@ -78,12 +81,7 @@
           <div class="form-group" v-if="travelType === 'oneWay' || travelType === 'roundTrip' || travelType === 'multiCity'">
             <label>Person</label>
             <div class="input-with-icon">
-              <i class="fas fa-user"></i>
-              <select v-model="personCount">
-                <option>1 Economy</option>
-                <option>2 Economy</option>
-                <option>3 Economy</option>
-              </select>
+              <test />
             </div>
           </div>
 
@@ -243,6 +241,7 @@ body {
 
 /* Container and Background */
 .container {
+  max-width: 100vw;
   min-height: 100vh; /* Ensures it spans the viewport */
   width: 100%; /* Ensures it spans the full width of the viewport */
   display: flex;
@@ -251,7 +250,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   position: relative; /* For layered positioning */
-  overflow: hidden; /* Prevent any unwanted overflow */
 }
 
 /* Image inside the container */
@@ -262,7 +260,7 @@ body {
 
 
 .background-image {
-  width: 100%;
+  width: 100vw;
   height: 65%;
   display: flex;
   justify-content: center;
@@ -320,9 +318,9 @@ body {
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 800px;
+  max-width: 1000px;
   transform: translateY(30%); /* Centers it over the background */
-  z-index: 2; /* Ensures it’s above the background image */
+  z-index: 100; /* Ensures it’s above the background image */
   position: relative; /* Allows layering */
 }
 
@@ -425,7 +423,7 @@ body {
 .search-btn {
   width: 20%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #2196F3;
   color: white;
   font-size: 16px;
   border: none;
@@ -435,7 +433,7 @@ body {
 }
 
 .search-btn:hover {
-  background-color: #0056b3;
+  background-color: #2196F3;
 }
 
 /* Default PC Layout - No Changes Here */
@@ -515,7 +513,7 @@ body {
     font-size: 14px;
     background: white;
     padding: 5px 10px;
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     border-radius: 8px;
     cursor: pointer;
   }
