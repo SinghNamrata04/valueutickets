@@ -101,6 +101,7 @@ nav {
   padding: 15px 50px;
   position: relative;
   background-color: #F9F2F2;
+  /* margin-bottom: 100px; */
 }
 
 .logo img {
@@ -223,7 +224,7 @@ nav {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 70px;
+  top: 60px;
   left: -30px; /* Set left to 50px */
   
   /* border-radius: 5px; */
@@ -268,20 +269,29 @@ nav {
 }
 
 /* Tablet and Mobile adjustments */
+
 @media (max-width: 1024px) {  /* For tablets */
   .menu-icon {
     display: flex;
   }
+ 
 
   .nav-links {
     display: none;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    padding: 15px;
+    padding: 0px 30px;
     position: absolute;
-    top: 90px;
+    top: 79px;
     left: 0;
+    background-color: #F9F2F2;
+   
+    box-shadow: 0 4px 8px #F9F2F2;
+    z-index: 2;
+    
+    
+    
    
   }
 
@@ -296,7 +306,11 @@ nav {
   .dropdown-menu 
   {
     padding-left: 20px;
-    /* background-color: yellow; */
+    /* text-align: center; */
+    margin-bottom: 20px;
+    display: none;
+    flex-direction: row;
+    
   }
 
   .vertical-bar {
@@ -305,12 +319,18 @@ nav {
 }
 
 
-@media (max-width: 768px) {  /* For smaller tablets and larger phones */
-  
-  
+@media (min-width: 768px) { /* For smaller tablets and larger phones */
+
+  .nav-links {
+    /* margin-top: 20px; */
+    /* padding: 0px 10px; */
+    margin-bottom: 20px;
+    background-color: #F9F2F2;
+
+  }
   .logo img {
-    width: 100px;
-    margin-top: 20px;
+    width: 80px;
+    /* margin-top: 20px; */
   }
 
   .dropdown img {
@@ -339,11 +359,12 @@ nav {
   }
 }
 
-@media (max-width: 480px) {  /* For phones */
+@media (max-width: 480px) { 
   .logo img {
     width: 60px;
    padding: -50px;
   }
+  
 
   .dropdown img {
     width: 30px;
