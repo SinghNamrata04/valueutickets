@@ -6,6 +6,7 @@ import offers from '../components/offers.vue'
 import DealsReview from '../components/DealsReview.vue'
 import FAQ from '../components/Faq.vue'
 import Footer from '../components/Footer.vue'
+import PopularDestination from'../components/popular_destination.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Footer from '../components/Footer.vue'
     <Header />
     <FlightSearch />  <!-- You can add comments like this within the template -->
     <offers/>
+    <PopularDestination />
     <DealsReview />
     <FAQ />
     <Footer/>
