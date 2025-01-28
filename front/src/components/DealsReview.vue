@@ -25,7 +25,7 @@
     </div>
 
     <!-- Reviews Section -->
-    <h2 class="section-title">Reviews & Ratings</h2>
+    <h2 class="section-title-2">Reviews & Ratings</h2>
     <div class="reviews">
       <div v-for="(review, index) in reviews" :key="index" class="review-card">
         <div class="review-header">
@@ -111,11 +111,19 @@ export default {
 
 /* Section Title */
 .section-title {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
   color: #333;
   text-decoration:underline;
+}
+.section-title-2{
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
 }
 
 /* Best Deals Section */
@@ -153,11 +161,11 @@ export default {
 
 .deal-price {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   
 }
 .price{
-  margin-top: -2.2rem;
+  margin-top: -1.75rem;
 }
 
 .deal-price span {
@@ -170,7 +178,7 @@ export default {
   font-size: 22px; 
   color: #ff5722;
   display: block;
-  margin-left: 25rem;
+  margin-left: 22rem;
   text-align: center;
   margin-bottom: 20px;
 }
