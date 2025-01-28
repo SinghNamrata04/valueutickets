@@ -1,5 +1,4 @@
 <script setup>
-//import TheWelcome from '../components/TeamGreeting.vue'
 import Header from '../components/Header.vue'
 import FlightSearch from '../components/FlightSearch.vue'
 import offers from '../components/offers.vue'
@@ -11,7 +10,6 @@ import PopularDestination from'../components/popular_destination.vue'
 
 <template>
   <main>
-    <!-- <TheWelcome /> -->
     <Header />
     <FlightSearch />  <!-- You can add comments like this within the template -->
     <offers/>
@@ -21,3 +19,9 @@ import PopularDestination from'../components/popular_destination.vue'
     <Footer/>
   </main>
 </template>
+
+<style scoped>
+
+main{  background: #F9F2F2;  }
+
+</style>
