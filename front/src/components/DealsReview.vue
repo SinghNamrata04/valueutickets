@@ -323,6 +323,7 @@ export default {
   margin-right:4rem;
   }
 }
+   
 @media(max-width:768px){
 .flight-deals {
   padding: 10px;
@@ -370,43 +371,59 @@ export default {
 }
 }
 @media(max-width:425px){
- .flight-deals {
-  padding: 10px;
-  width: 100%; 
-} 
-/* Section Title */
-.section-title {
-  font-size: 20px;
-  margin-right: -10rem;
+ .section-title {
+  font-size: 24px;
+  margin: 20px auto;
+  align-item: center;
+  font-weight: 600;
 }
 .flight-deals {
   padding: 10px;
-  width: 100%; 
-  }
-  .route {
-  font-size: 14px;
-  margin-left: 5px;
-}
-.details {
-  font-size: 12px;
-  margin-left: 5px;
-}
-.deal-price strong {
-  font-size: 18px;
-  margin-left: 10rem;
-  margin-bottom: 10px;
-}
-.book-now {
+  width: 100vw; 
+  margin: 10px;
   
-  padding: 5px 20px;
-  font-size:12px;
-  margin-left: 15px;
 }
-.view-all {
-  margin: auto;
+.deal-item {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  gap: 16px;
+  margin: auto; 
+  border-bottom: 1px solid #ddd;
 }
+.route {
+  text-align:center;
+  font-size: 26px;
+  margin:  20px auto;
+  font-weight: 600;
 }
 
+.details {
+  font-size: 20px;
+    margin: 10px auto;
+}
+.price{
+  margin: auto;
+}
+
+.deal-price span {
+  font-size: 18px;
+  margin: 10px auto;
+}
+
+.deal-price strong {
+  font-size: 24px; 
+  margin:  10px auto;
+  text-align: center;
+}
+
+.book-now {
+  margin:  20px auto;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+}
 
 /*-----------------Responsive Design for Review Section----------------*/
 @media(max-width:992px){
@@ -418,17 +435,12 @@ export default {
 }
 @media(max-width:425px){
 .reviews {
-  width: 300px; 
+  width: 200px; 
+  margin: 10px auto;
+  align-item: center;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
-.page-container {
-  padding-bottom: 20px;
-  width: 160vw;
-  
+
 }
-.section-title{
-  font-size:18px;
-  text-align:center;
-  margin-right:3rem;
-}
-}
+
 </style>
