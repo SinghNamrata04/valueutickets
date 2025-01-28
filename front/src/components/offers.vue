@@ -1,25 +1,23 @@
 <template>
-  <div class="offers-container">
-    <h2 class="offers-title">Exclusive Offers</h2>
-    <div class="offers-grid">
-      <div
-        v-for="(offer, index) in visibleOffers"
-        :key="index"
-        class="offer-card"
-        @click="handleCardClick(offer)"
-      >
-        <img :src="offer.image" :alt="offer.title" class="offer-image" />
-        <div class="offer-content">
-          <h3 class="offer-title">{{ offer.title }}</h3>
-          <p class="offer-description">{{ offer.description }}</p>
-        </div>
+  <h2 class="offers-title">Exclusive Offers</h2>
+  <div class="offers-grid">
+    <div
+      v-for="(offer, index) in visibleOffers"
+      :key="index"
+      class="offer-card"
+      @click="handleCardClick(offer)"
+    >
+      <img :src="offer.image" :alt="offer.title" class="offer-image" />
+      <div class="offer-content">
+        <h3 class="offer-title">{{ offer.title }}</h3>
+        <p class="offer-description">{{ offer.description }}</p>
       </div>
     </div>
-    <div class="expand-btn-container">
-      <button class="expand-btn" @click="toggleOffers">
-        {{ showAll ? 'Show Less' : 'Show More' }}
-      </button>
-    </div>
+  </div>
+  <div class="expand-btn-container">
+    <button class="expand-btn" @click="toggleOffers">
+      {{ showAll ? 'Show Less' : 'Show More' }}
+    </button>
   </div>
 </template>
 
@@ -30,28 +28,23 @@ export default {
     return {
       offers: [
         {
-          title: "Beach Paradise",
-          description: "Enjoy 20% off on beach resorts.",
-          image: "/images/beach.jpg", // Replace with your image path
+          description: "*Get 12% off on your first domestic flight booking with ValueU Tickets! Book now and save big on your travel.",
+          image: "/images/12percent.png", // Replace with your image path
         },
         {
-          title: "Mountain Adventure",
-          description: "Explore the mountains with exclusive deals.",
-          image: "/images/dark.jpg",
+          description: "*Your first flight just got more affordable! Book now and save up to 12% on flights across the USA.",
+          image: "/images/mmt12.jpg",
         },
         {
-          title: "City Getaway",
-          description: "Discover city life with amazing discounts.",
-          image: "/images/city.jpg",
+          description: "*Enjoy $50 cashback when you book your first flight with ValueU Tickets! Travel smart and save more.",
+          image: "/images/paytm.jpg",
         },
         {
-          title: "Tropical Escape",
-          description: "Book now and save on tropical vacations.",
-          image: "/images/tropical.jpg",
+          description: "*Book now and get $100 off on your flight! Exclusive deal only on ValueU Tickets—don't miss out.",
+          image: "/images/mmt.jpg",
         },
         {
-          title: "Luxury Cruise",
-          description: "Exclusive deals on luxury cruises.",
+          description: "Exclusive Deals Await! Experience the ultimate sea voyage with luxury cruise deals starting at just $299! Book today for an unforgettable journey.",
           image: "/images/cruise.jpg",
         },
       ],
@@ -93,7 +86,8 @@ export default {
 .offers-title {
   text-align: center;
   font-size: 24px;
-  color: #333;
+  color: #000;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
