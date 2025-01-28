@@ -11,7 +11,7 @@
         <button @click="toggleFaq(index)" class="faq-question">
           <span>{{ faq.question }}</span>
           <i :class="['fas', faq.open ? 'fa-angle-up' : 'fa-angle-down']" class="toggle-icon"></i>
-          <span class="toggle-icon">{{ faq.open ? '-' : '+' }}</span>
+          
         </button>
         <transition name="fade">
           <div v-if="faq.open" class="faq-answer">
@@ -95,15 +95,15 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #f9f9f900;
 }
 
 .faq-page {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.000);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.0);
   border-radius: 8px;
 }
 
