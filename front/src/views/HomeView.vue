@@ -1,5 +1,5 @@
 <script setup>
-import TheWelcome from '../components/TeamGreeting.vue'
+//import TheWelcome from '../components/TeamGreeting.vue'
 import Header from '../components/Header.vue'
 </script>
 
