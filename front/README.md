@@ -16,6 +16,12 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+### Additional Setup
+
+```sh
+npm install font-awesome
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
