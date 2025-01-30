@@ -409,7 +409,7 @@ export default {
 }
 .flight-deals {
   padding: 10px;
-  width: 100vw; 
+  width: 98vw; 
   margin: 10px;
   
 }
