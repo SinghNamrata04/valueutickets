@@ -96,12 +96,20 @@ export default {
       this.isPopupVisible = !this.isPopupVisible;
     },
     increaseCount(type) {
+      const totalTravellers = this.adultCount + this.childCount + this.infantCount;
+      if (totalTravellers >= 9) return;
+      
       if (type === 'adult') this.adultCount++;
       else if (type === 'child') this.childCount++;
-      else if (type === 'infant') this.infantCount++;
+      else if (type === 'infant' && this.infantCount < this.adultCount) this.infantCount++;
     },
     decreaseCount(type) {
-      if (type === 'adult' && this.adultCount > 0) this.adultCount--;
+      if (type === 'adult' && this.adultCount > 1) {
+        this.adultCount--;
+        if (this.infantCount > this.adultCount) {
+          this.infantCount = this.adultCount;
+        }
+      }
       else if (type === 'child' && this.childCount > 0) this.childCount--;
       else if (type === 'infant' && this.infantCount > 0) this.infantCount--;
     },
@@ -117,6 +125,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 #passengerPopup {

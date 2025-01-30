@@ -1,5 +1,5 @@
 <script setup>
-import test from '../components/test.vue'
+import passclass from './passclass.vue'
 </script>
 <template>
   <div class="container">
@@ -81,7 +81,7 @@ import test from '../components/test.vue'
           <div class="form-group" v-if="travelType === 'oneWay' || travelType === 'roundTrip' || travelType === 'multiCity'">
             <label>Person</label>
             <div class="input-with-icon">
-              <test />
+              <passclass />
             </div>
           </div>
 
@@ -242,7 +242,7 @@ body {
 /* Container and Background */
 .container {
   max-width: 100vw;
-  min-height: 100vh; /* Ensures it spans the viewport */
+  min-height: 70vh; /* Ensures it spans the viewport */
   width: 100%; /* Ensures it spans the full width of the viewport */
   display: flex;
   max-width: 2000px;
@@ -260,7 +260,7 @@ body {
 
 
 .background-image {
-  width: 100vw;
+  width: 99.15vw;
   height: 65%;
   display: flex;
   justify-content: center;
@@ -314,10 +314,10 @@ body {
 
 .content-wrapper {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
+  width: 80%;
   max-width: 1000px;
   transform: translateY(30%); /* Centers it over the background */
   z-index: 100; /* Ensures it’s above the background image */
@@ -370,7 +370,7 @@ body {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  gap: 7px;
   align-items: center;
 }
 
@@ -446,7 +446,18 @@ body {
 }
 
 /* Mobile Optimization */
-@media (max-width: 768px) {
+@media (max-width: 769px) {
+  .container {
+  max-width: 100vw;
+  min-height: 100vh; /* Ensures it spans the viewport */
+  width: 100%; /* Ensures it spans the full width of the viewport */
+  display: flex;
+  max-width: 2000px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative; /* For layered positioning */
+}
   /* Background image positioning */
   .background-image {
     position: absolute;
