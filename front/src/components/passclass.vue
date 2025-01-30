@@ -2,9 +2,9 @@
   <div class="mod-se-box mod-se-psng" id="passengerPopup">
     <div class="w-100-fl se-psng">
       <div class="w-100-fl se-psng-cont" @click="togglePopup">
-        <span><i class="fas fa-user">&nbsp&nbsp</i>
+        <span><i class="fas fa-user"></i>&nbsp;&nbsp;
           <span id="txtPaxDetails">{{ passengerDetails }}</span> 
-          &nbsp&nbsp&nbsp<i class="fa fa-angle-up"></i>
+          <i :class="{'fa fa-angle-up': isPopupVisible, 'fa fa-angle-down': !isPopupVisible}" class="angle-icon"></i>
         </span>
       </div>
       <div v-if="isPopupVisible" class="psg_dls">
@@ -88,7 +88,7 @@ export default {
     passengerDetails() {
       const totalTravellers = this.adultCount + this.childCount + this.infantCount;
       const cabin = this.cabinClasses.find(c => c.value === this.selectedCabin)?.label || "Economy";
-      return `${totalTravellers} Traveller${totalTravellers > 1 ? 's' : ''}, ${cabin}`;
+      return `${totalTravellers} ${totalTravellers > 1 ? 's' : ''}, ${cabin}`;
     },
   },
   methods: {
@@ -181,6 +181,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.angle-icon {
+  float: right;
 }
 
 .input-group .btn {
