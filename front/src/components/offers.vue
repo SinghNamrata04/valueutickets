@@ -78,6 +78,7 @@ export default {
   font-size: 24px;
   color: #000;
   font-weight: bold;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
