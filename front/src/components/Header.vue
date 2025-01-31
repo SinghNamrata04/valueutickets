@@ -242,13 +242,6 @@ nav {
     display: flex;
   }
 
-  .logo img {
-  width: 100px;
-  position: absolute;
-  left: 40vw;
-  top: 2px;
-  z-index: 900;
-}
 
   .nav-links {
     display: none;
