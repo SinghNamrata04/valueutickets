@@ -2,10 +2,10 @@
   <div class="mod-se-box mod-se-psng" id="passengerPopup">
     <div class="w-100-fl se-psng">
       <div class="w-100-fl se-psng-cont" @click="togglePopup">
-        <span><i class="fas fa-user"></i>&nbsp;&nbsp;
+        <span><i class="fas fa-user"></i> 
           <span id="txtPaxDetails">{{ passengerDetails }}</span> 
-          <i :class="{'fa fa-angle-up': isPopupVisible, 'fa fa-angle-down': !isPopupVisible}" class="angle-icon"></i>
         </span>
+        <i :class="{'fa fa-angle-up': isPopupVisible, 'fa fa-angle-down': !isPopupVisible}" class="angle-icon"></i>
       </div>
       <div v-if="isPopupVisible" class="psg_dls">
         <div class="popup-content">
@@ -88,7 +88,7 @@ export default {
     passengerDetails() {
       const totalTravellers = this.adultCount + this.childCount + this.infantCount;
       const cabin = this.cabinClasses.find(c => c.value === this.selectedCabin)?.label || "Economy";
-      return `${totalTravellers} ${totalTravellers > 1 ? 's' : ''}, ${cabin}`;
+      return `${totalTravellers}${totalTravellers > 1 ? 's' : ''}, ${cabin}`;
     },
   },
   methods: {
@@ -130,14 +130,32 @@ export default {
 <style scoped>
 #passengerPopup {
   font-family: 'Arial', sans-serif;
-  font-size: 14px;
-  border: 1px solid #ddd;
+  font-size: 16px;
   padding: 10px;
-  border-radius: 8px;
+  margin-top: 0px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #ffffff;
   position: relative;
+  width: 200px;
+  height: 50px;
   z-index: 9000;
 }
-
+.w-100-fl.se-psng-cont {
+  position: relative;
+  margin-top: 3px;
+}
+.w-100-fl.se-psng-cont i{
+  margin-right: 3px;
+}
+.w-100-fl.se-psng-cont span{
+  cursor: pointer;
+}
+.angle-icon {
+  position: absolute;
+  right: -11px;
+  top: 3px;
+}
 .psg_dls {
   position: absolute;
   top: 100%;
@@ -146,7 +164,6 @@ export default {
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 100%;
   z-index: 9000;
 }
 

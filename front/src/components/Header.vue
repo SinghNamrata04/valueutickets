@@ -1,31 +1,28 @@
 <template>
   <div>
     <nav>
-      <div class="logo">
-        <img :src="logo" alt="Logo" />
-      </div>
       <div class="menu-icon" @click="toggleMenu">
         <div></div>
         <div></div>
         <div></div>
       </div>
+      <router-link to="/">
+        <div class="logo">
+          <img :src="logo" alt="Logo" />
+        </div>
+      </router-link>
       <ul :class="['nav-links', { active: isMenuActive }]">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">My Booking</a></li>
-        <li><a href="#">Blogs</a></li>
-        <li><a href="#">Packages</a></li>
-        <li><a href="#">Services</a></li>
-        <li><button class="login-btn">Login or Signup</button></li>
-        <li>
-          <div class="vertical-bar"></div>
-        </li>
-        <li class="dropdown" @click.stop="toggleDropdown">
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/my-booking">My Booking</router-link></li>
+        <li><router-link to="/blogs">Blogs</router-link></li>
+        <li><router-link to="/packages">Packages</router-link></li>
+        <li><router-link to="/services">Services</router-link></li>
+        <li><router-link to="/admin"><button class="login-btn">Login or Signup</button></router-link></li>
+      </ul>
+      <div class="dropdown" @click.stop="toggleDropdown">
           <div class="dropdown-toggle">
             <img :src="selectedFlag" alt="Flag" />
-            <span
-          class="dropdown-icon ml-2"
-          :class="{ rotate: isRotated }"
-        >&or;</span>
+            <span class="dropdown-icon ml-1" :class="{ rotate: isRotated }">&#9662;</span>
           </div>
           <ul :class="['dropdown-menu', { show: isDropdownActive }]">
             <li
@@ -36,8 +33,7 @@
               <img :src="flag.url" :alt="flag.name" />
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
     </nav>
   </div>
 </template>
@@ -52,11 +48,10 @@ export default {
       isMenuActive: false,
       isDropdownActive: false,
       isRotated: false, 
-      selectedFlag: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg", 
+      selectedFlag: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_the_United_States_%28Pantone%29.svg", 
       flags: [
-        { name: "France", url: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" },
-        { name: "USA", url: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" },
-        { name: "India", url: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" },
+        { name: "USA", url: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_the_United_States_%28Pantone%29.svg" },
+        { name: "Canada", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" },
         { name: "Mexico", url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" },
       ],
     };
@@ -71,7 +66,8 @@ export default {
     },
     changeFlag(flagUrl) {
       this.selectedFlag = flagUrl;
-      this.isDropdownActive = true; // Close the dropdown after selecting a flag
+      this.isDropdownActive = false; // Close the dropdown after selecting a flag
+      this.isRotated = false; // Reset the rotation
     },
     closeDropdownOnClickOutside(event) {
       if (
@@ -79,6 +75,7 @@ export default {
         !event.target.closest(".menu-icon")
       ) {
         this.isDropdownActive = false;
+        this.isRotated = false; // Reset the rotation
       }
     },
   },
@@ -96,40 +93,32 @@ export default {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
-  padding: 15px 50px;
-  position: relative;
+  padding: 10px 10px;
   background-color: #F9F2F2;
-  /* margin-bottom: 100px; */
+  position: relative;
+  height: 82px;
 }
 
 .logo img {
   width: 100px;
-  /* height: auto; */
-  /* padding-left: 50px; */
+  position: absolute;
+  left: 18px;
+  top: 2px;
+  z-index: 900;
 }
+
 .nav-links {
   display: flex;
   align-items: center;
   list-style: none;
-  /* display: none; */
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-    /* width: 100%; */
-    /* padding: 0px 0px; */
-    /* position: absolute; */
-    /* top: 79px; */
-    left: 0;
-    /* background-color: #F9F2F2; */
-   
-    /* box-shadow: 0 4px 8px #F9F2F2; */
-    gap: 10px;
-    z-index: 2;
+  gap: 5px;
+  z-index: 2;
 }
 
 .nav-links li {
-  margin: 0 20px;
+  margin: 0 5px;
 }
 
 .nav-links a {
@@ -137,13 +126,9 @@ nav {
   color: black;
   font-size: 20px;
   font-weight: bold;
-  /* padding: 8px 2px; */
   border-radius: 5px;
-  transition: background-color 0.3s ease-in-out, 
-  text-decoration 0.3s ease-in-out;
-  /* background-color: #0056b3; */
+  transition: background-color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
 }
-
 
 .nav-links a.active {
   background-color: #0056b3;
@@ -151,16 +136,12 @@ nav {
   text-decoration: underline;
 }
 
-
 .nav-links a:hover {
-  
-  color: white;
   text-decoration: underline;
-  background-color: black;
-  color: white; 
-  padding: 2px 1px; 
+  font-weight: 800;
+  padding: 2px 1px;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease; 
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .login-btn {
@@ -174,97 +155,67 @@ nav {
 }
 
 .login-btn:hover {
-  text-decoration: underline;
-  background-color: black;
-  color: white; 
-  /* padding: 2px 5px;  */
+  background-color: #0056b3;
+  color: white;
   border-radius: 20px;
-  transition: background-color 0.3s ease, color 0.3s ease; 
-}
-
-.vertical-bar {
-  width: 1px;
-  height: 70px;
-  background-color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown {
   position: relative;
+  margin-right: 15px;
+  margin-left: 10px;
 }
 
 .dropdown img {
-  width: 35px;
-  height: 35px;
-  margin-right: -0px;
+  width: 50px;
+  height: 25px;
+  margin-right: 0px;
   border: #0056b3;
-  /* border: 1px solid black; */
 }
 
-.dropdown img:hover
-{
-  /* transform: translateY(-5px); */
+.dropdown img:hover {
   transition: transform 0.3s ease-in-out;
   transform: scale(1.2);
-  
 }
 
 .dropdown-toggle {
   display: flex;
   align-items: center;
-  /* font-size: 30px; */
   cursor: pointer;
-  
 }
+
 .dropdown-toggle::after {
-      display: none;
-    }
+  display: none;
+}
 
 .dropdown-icon {
-  font-size: 30px;
-  /* margin-left: -15px; */
-  font-weight:  bolder;
-  transition: transform 0.3s ease; 
-  margin-top: -8px;
-
+  font-size: 20px;
+  font-weight: bolder;
+  transition: transform 0.3s ease;
 }
+
 .dropdown-icon.rotate {
-      transform: rotate(180deg);
-    }
-
-
-
+  transform: rotate(180deg);
+}
 
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 60px;
-  left: -30px; /* Set left to 50px */
-  
-  /* border-radius: 5px; */
-  /* z-index: 10; */
-  /* background-color: transparent;  */
+  top: 38px;
+  left: -60px;
+  z-index: 900;
   background-color: #F9F2F2;
-  /* border: none;  */
-  box-shadow: none; 
-  /* text-align: center; */
-  width: 100%;
-
 }
-
 
 .dropdown-menu.show {
   display: block;
 }
 
 .dropdown-menu li {
-  padding: 5px 10px;
+  padding: 5px 0px;
   cursor: pointer;
-  /* background-color: transparent;  */
-  /* background-color: #0056b3 */
-  left: -40px;
 }
-
-
 
 .menu-icon {
   display: none;
@@ -272,88 +223,43 @@ nav {
   justify-content: space-between;
   width: 25px;
   height: 18px;
+  margin-left: 15px;
   cursor: pointer;
 }
 
 .menu-icon div {
   width: 100%;
   height: 3px;
-  background-color:black;
+  background-color: black;
 }
 
-/* Tablet and Mobile adjustments */
-@media (max-width: 1024px) { 
-  .nav-links {
-    margin-left: -10px;
-    gap: 18px;
-  }
-
-  .logo img {
-    width: 80px;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
-
-  .dropdown {
-    position: relative;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 50px;
-    left: -50px;
-    /* background-color: #0056b3; */
-    padding: 10px 15px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  }
-
-  .dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .dropdown-menu li {
-    padding: 5px 10px;
-    cursor: pointer;
-    color: white;
-  }
-
-  .dropdown-menu li:hover {
-    background-color: #003b80;
-  }
-
-  .vertical-bar {
-    /* display: none; */
-  }
-}
-@media (max-width: 768px) {  /* For tablets */
+@media (max-width: 770px) {  
   .menu-icon {
     display: flex;
   }
- 
+
+  .logo img {
+  width: 100px;
+  position: absolute;
+  left: 40vw;
+  top: 2px;
+  z-index: 900;
+}
+
   .nav-links {
     display: none;
+    margin-top: 10px;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    padding: 10px 30px;
+    padding: 10px;
     position: absolute;
-    top: 79px;
+    gap: 0px;
+    top: 70px;
     left: 0;
     background-color: #F9F2F2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-  }
-
-  .logo img {
-    width: 80px;
+    box-shadow: 0 4px 8px #F9F2F2;
+    z-index: 100;
   }
 
   .nav-links.active {
@@ -361,26 +267,15 @@ nav {
   }
 
   .nav-links li {
-    margin: 10px 0;
+    margin: 3px;
   }
 
   .dropdown-menu {
-    padding-left: 0; /* Fixed invalid negative padding */
-    /* text-align: center; */
-    margin-bottom: 20px;
-    position: absolute;
-    /* background-color: #0056b3; */
-    border-radius: 5px;
-    width: 100%;
-    opacity: 0;
-    left: -20px;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  }
-
-  .dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
+    padding-left: 20px;
+    margin-left: 55px;
+    margin-bottom: 0px;
+    display: none;
+    flex-direction: row;
   }
 
   .vertical-bar {
@@ -388,28 +283,34 @@ nav {
   }
 }
 
-
-@media (max-width: 480px) { 
-  .logo img {
-    width: 60px;
-   padding: -50px;
-  }
-  
-
-  .dropdown img {
-    width: 30px;
+@media (min-width: 768px) {
+  .nav-links {
+    margin-bottom: 0px;
   }
 
   .nav-links a {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .login-btn {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .dropdown-icon {
-    font-size: 18px;
+    font-size: 20px;
+  }
+
+  .dropdown-menu {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links a {
+    font-size: 16px;
+  }
+  .login-btn {
+    font-size: 14px;
   }
 }
 </style>
