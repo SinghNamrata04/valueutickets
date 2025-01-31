@@ -1,0 +1,175 @@
+-------Best Deals on Flight Tickets Section--------
+
+
+
+-----------------------------------------Code-------------------------------
+
+allDeals: [
+    { route: "New York - Japan", date: "Thursday 30 Jan 2025", airline: "Indigo", price: "57.55" },
+    { route: "Maxico - Japan", date: "Thursday 30 Jan 2025", airline: "Indigo", price: "57.55" },
+    // More deals here...
+],
+visibleDeals: [],
+expanded: false,
+
+-----------------------------------------Explain----------------------------
+
+allDeals: Holds all the flight deal information (route, date, airline, price).
+visibleDeals: Initially stores the first 5 visible flight deals.
+expanded: A flag indicating whether all deals are visible or only the first 5.
+
+------------------------------------------Code---------------------------------
+
+mounted() {
+    this.visibleDeals = this.allDeals.slice(0, 5); // Show first 5 deals by default
+},
+methods: {
+    expandDeals() {
+        this.visibleDeals = this.allDeals;
+        this.expanded = true;
+    },
+    collapseDeals() {
+        this.visibleDeals = this.allDeals.slice(0, 5);
+        this.expanded = false;
+    },
+},
+
+
+------------------------------------------Explain-----------------------------------------
+
+mounted(): A Vue lifecycle method that sets the initial visible deals to the first 5 when the component is mounted.
+expandDeals(): This method shows all deals when "View All" is clicked and sets the expanded flag to true.
+collapseDeals(): This method restricts visible deals back to the first 5 when "View Less" is clicked and sets the expanded flag to false.
+
+----------------------------------HTML Template Code--------------------------------
+
+<button v-if="!expanded" class="view-all" @click="expandDeals">View All</button>
+<button v-if="expanded" class="view-all" @click="collapseDeals">View Less</button>
+
+------------------------------------Explain------------------------------------------
+
+v-if="!expanded": The "View All" button appears only when the deals are not expanded (expanded is false).
+v-if="expanded": The "View Less" button appears when the deals are expanded (expanded is true).
+
+
+----------------------Reviews & Ratings Section-------------------
+
+------------------------------Code---------------------------------
+
+reviews: [
+    { name: "Jc Castillo", date: "April 14, 2025", text: "The booking process was seamless...", initials: "JC", rating: 5 },
+    { name: "Jane Doe", date: "April 15, 2025", text: "The crew was very polite...", initials: "JD", rating: 4 },
+    // More reviews here...
+],
+
+
+------------------------------Explain-------------------------------------
+
+reviews: An array storing user reviews with details like name, date, review text, initials, and rating.
+
+--------------------------------Code---------------------------------------
+
+<div v-for="(review, index) in reviews" :key="index" class="review-card">
+    <div class="review-header">
+        <div class="avatar">{{ review.initials }}</div>
+        <div>
+            <h3 class="review-name">{{ review.name }}</h3>
+            <div class="review-rating">
+                <span v-for="n in 5" :key="n" class="star" :class="{ filled: n <= review.rating }">★</span>
+            </div>
+            <p class="review-date">{{ review.date }}</p>
+        </div>
+    </div>
+    <p class="review-text">{{ review.text }}</p>
+</div>
+
+------------------------------Explain-----------------------------------------
+
+v-for="(review, index) in reviews": A loop that iterates over the reviews array and displays each review.
+v-for="n in 5": A loop inside the star-rating to display 5 stars based on the rating value, filling them according to the rating.
+
+-------------------------------Code-------------------------------------
+
+.star {
+    color: #ddd; 
+}
+
+.star.filled {
+    color: gold !important;
+}
+
+---------------------------------Explain---------------------------
+
+.star: The default style for the star, colored grey.
+.star.filled: This class applies the gold color to stars that are part of the rating.
+
+
+----------------------Styling & Responsive Design--------------------
+
+-------------------Global Styles Code-----------------------------------
+
+.page-container {
+    background-color: #f9f2f2;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+-----------------Explain---------------------
+
+.page-container: This class wraps the entire page content and applies a light background, padding, and a default font.
+
+-------------------------------Button Styling Code----------------------------------------
+
+.book-now {
+    background: linear-gradient(90deg, #3E41EC, #09C398);
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    transition: background 0.3s ease;
+}
+
+-------------------------------Explain--------------------------------------------
+
+.book-now: Styles for the "Book Now" button with a gradient background, rounded corners, and a pulsing animation for engagement.
+
+
+
+-------------------------Responsive Design (Media Queries) Code-------------------------------------
+
+@media(max-width: 992px) {
+    .flight-deals {
+        padding: 10px;
+        width: 90%;
+    }
+}
+@media(max-width: 768px) {
+    .flight-deals {
+        padding: 10px;
+        width: 95%;
+    }
+}
+@media(max-width: 425px) {
+    .flight-deals {
+        padding: 10px;
+        width: 100vw;
+    }
+    .deal-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+--------------------------------Explain-----------------------------------------
+
+.flight-deals: Adjusts the width and padding for the flight deals section to fit smaller screen sizes.
+.deal-item: On very small screens (like mobile), this class makes the flight deal items stack vertically and center-align them.
+
+
+
+
+

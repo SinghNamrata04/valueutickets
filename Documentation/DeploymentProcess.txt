@@ -1,0 +1,24 @@
+Tech stack for Valuetickets.com 
+
+Node,
+Vue,
+Express,
+Django,
+Django RestFramework,
+CORS,
+Celery,
+Cronjobs,
+Pytest,
+Mysql,
+whitenoise,
+Docker
+Nginx
+
+
+Deployment process:
+
+Vue.js will be combined with Express.js to intially serve the frontend application routes on valueutickets.com 
+
+Django + Django RestFramework will be deployed on interface.valueutickets.com separately and isolated from frontend application. 
+
+Cors will be used from django to leverage the workflow of api on route interface.valueutickets.com/api/v1/endpoint/ to submit and POST and PUT requests from frontend and updates will be saved and reflected in Database.
