@@ -31,6 +31,7 @@
               @click="changeFlag(flag.url)"
             >
               <img :src="flag.url" :alt="flag.name" />
+              <span>{{ flag.lang }}</span>
             </li>
           </ul>
         </div>
@@ -50,9 +51,9 @@ export default {
       isRotated: false, 
       selectedFlag: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_the_United_States_%28Pantone%29.svg", 
       flags: [
-        { name: "USA", url: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_the_United_States_%28Pantone%29.svg" },
-        { name: "Canada", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" },
-        { name: "Mexico", url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" },
+        { name: "U.S.A.", lang: "English", url: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_the_United_States_%28Pantone%29.svg" },
+        { name: "Canada", lang: "English", url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" },
+        { name: "Mexico", lang: "Española", url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" },
       ],
     };
   },
@@ -170,7 +171,8 @@ nav {
 .dropdown img {
   width: 50px;
   height: 25px;
-  margin-right: 0px;
+  margin-right: 3px;
+  margin-left: 3px;
   border: #0056b3;
 }
 
@@ -202,8 +204,9 @@ nav {
 .dropdown-menu {
   display: none;
   position: absolute;
+  width: 10px !important; 
   top: 38px;
-  left: -60px;
+  left: -70px;
   z-index: 900;
   background-color: #F9F2F2;
 }
@@ -213,7 +216,8 @@ nav {
 }
 
 .dropdown-menu li {
-  padding: 5px 0px;
+  padding-left: 10px;
+  padding-top: 5px;
   cursor: pointer;
 }
 
@@ -270,14 +274,6 @@ nav {
     margin: 3px;
   }
 
-  .dropdown-menu {
-    padding-left: 20px;
-    margin-left: 55px;
-    margin-bottom: 0px;
-    display: none;
-    flex-direction: row;
-  }
-
   .vertical-bar {
     display: none;
   }
@@ -298,10 +294,6 @@ nav {
 
   .dropdown-icon {
     font-size: 20px;
-  }
-
-  .dropdown-menu {
-    width: 100px;
   }
 }
 
