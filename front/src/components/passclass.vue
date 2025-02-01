@@ -189,7 +189,7 @@ export default {
 
 .pass_bx label {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   display: block;
   margin-bottom: 5px;
 }
@@ -222,7 +222,7 @@ export default {
   text-align: center;
   border: none;
   background-color: transparent;
-  font-size: 14px;
+  font-size: 18px;
   width: 40px;
 }
 
@@ -240,17 +240,21 @@ export default {
 
 .radio input {
   margin-right: 10px;
+  width: 18px;
+  height: 18px;
 }
 
 .radio label {
-  font-size: 14px;
+  margin-top: 0px;
+  font-size: 17px;
+  margin-bottom: 0px;
 }
 
 .psg_dls_btn .btn {
   width: 100%;
   background-color: #007bff;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
