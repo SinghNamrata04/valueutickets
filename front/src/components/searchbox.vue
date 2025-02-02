@@ -1,6 +1,8 @@
 <script setup>
 import passclass from './passclass.vue'
+import AirportAuto from './AirportAuto.vue'
 </script>
+
 <template>
   <div class="container">
     <div class="tabs">
@@ -19,12 +21,17 @@ import passclass from './passclass.vue'
         </label>
       </div>
       
+      <!-- One Way Trip -->
       <div v-if="tripType === 'oneWay'" class="input-group">
         <div class="input-box">
           <label>From</label>
           <span>
             <i class="fas fa-plane-departure"></i>
-            <input type="text" placeholder="From" v-model="oneWay.from" />
+            <!-- Replace plain input with AirportAuto -->
+            <AirportAuto 
+              placeholder="From" 
+              v-model="oneWay.from" 
+            />
           </span>
           <button class="swap-btn" @click="swap(oneWay)">🔄</button>
         </div>
@@ -32,7 +39,10 @@ import passclass from './passclass.vue'
           <label>To</label>
           <span>
             <i class="fas fa-plane-arrival"></i>
-            <input type="text" placeholder="To" v-model="oneWay.to" />
+            <AirportAuto 
+              placeholder="To" 
+              v-model="oneWay.to" 
+            />
           </span>
         </div>
         <div class="input-box">
@@ -48,12 +58,16 @@ import passclass from './passclass.vue'
         </div>
       </div>
       
+      <!-- Round Trip -->
       <div v-if="tripType === 'roundTrip'" class="input-group">
         <div class="input-box">
           <label>From</label>
           <span>
             <i class="fas fa-plane-departure"></i>
-            <input type="text" placeholder="From" v-model="roundTrip.from" />
+            <AirportAuto 
+              placeholder="From" 
+              v-model="roundTrip.from" 
+            />
           </span>
           <button class="swap-btn" @click="swap(roundTrip)">🔄</button>
         </div>
@@ -61,7 +75,10 @@ import passclass from './passclass.vue'
           <label>To</label>
           <span>
             <i class="fas fa-plane-arrival"></i>
-            <input type="text" placeholder="To" v-model="roundTrip.to" />
+            <AirportAuto 
+              placeholder="To" 
+              v-model="roundTrip.to" 
+            />
           </span>
         </div>
         <div class="input-box">
@@ -84,13 +101,18 @@ import passclass from './passclass.vue'
         </div>
       </div>
       
+      <!-- Multi City -->
       <div v-if="tripType === 'multiCity'">
         <div v-for="(segment, index) in multiCity" :key="index" class="multi-city-segment input-group">
           <div class="input-box">
             <label>From</label>
             <span>
               <i class="fas fa-plane-departure"></i>
-              <input type="text" placeholder="From" v-model="segment.from" @input="autoFillFrom(index)" />
+              <AirportAuto 
+                placeholder="From" 
+                v-model="segment.from"
+                @input="autoFillFrom(index)" 
+              />
             </span>
             <div class="swap-btn" @click="swap(segment)">🔄</div>
           </div>
@@ -98,7 +120,10 @@ import passclass from './passclass.vue'
             <label>To</label>
             <span>
               <i class="fas fa-plane-arrival"></i>
-              <input type="text" placeholder="To" v-model="segment.to" />
+              <AirportAuto 
+                placeholder="To" 
+                v-model="segment.to" 
+              />
             </span>
           </div>
           <div class="input-box">
@@ -117,7 +142,7 @@ import passclass from './passclass.vue'
         </div>
       </div>
       
-      <button class="search-button">Search Flight</button>
+      <router-link to="/results"><button class="search-button">Search Flight</button></router-link>
     </div>
     
     <div v-else>
@@ -125,9 +150,6 @@ import passclass from './passclass.vue'
     </div>
   </div>
 </template>
-
-
-
 
 <script>
 export default {
@@ -169,6 +191,7 @@ export default {
 </script>
 
 <style scoped>
+/* (Your existing styles remain unchanged) */
 .container {
   padding: 5px 15px;
   display: flex;
@@ -177,14 +200,12 @@ export default {
   background-color: #FFFFFF;
   border-radius: 15px;
 }
-
 .tabs {
   display: flex;
   gap: 20px;
   margin-bottom: 10px;
   justify-content: center;
 }
-
 .tabs button {
   padding: 10px;
   margin: 5px;
@@ -193,38 +214,31 @@ export default {
   display: flex;
   align-items: center;
   gap: 5px;
-  background-color: #00000000;
-  border-color: #00000000;
+  background-color: transparent;
+  border: none;
 }
-
 .tabs i {
-  font-size: 18px; /* Adjust the size of the icons */
+  font-size: 18px;
 }
-
 .active {
   font-weight: bold;
   text-decoration: underline;
   color: #007bff;
 }
-
 .flight-section {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 .trip-type {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   gap: 10px;
 }
-
 .trip-type label {
   cursor: pointer;
-  /* Add any necessary padding or border if you need */
 }
-
 .input-group {
   display: flex;
   gap: 5px;
@@ -232,22 +246,19 @@ export default {
   margin-bottom: 10px;
   justify-content: center;
 }
-
 .input-box {
   display: flex;
-  flex-direction: column; /* Stack label on top of input */
+  flex-direction: column;
   align-items: center;
   position: relative;
 }
-
 .input-box label {
-  margin-bottom: 5px; /* Space between label and input */
+  margin-bottom: 5px;
   font-weight: bold;
   text-align: left;
   width: 100%;
   padding-left: 5px;
 }
-
 .input-box span {
   display: flex;
   align-items: center;
@@ -255,21 +266,21 @@ export default {
   height: 50px;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #000000;
-  background: #ffffff;
-  font-size: 16px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 15px;
   justify-content: center;
 }
-.input-box input {
+.input-box input[type="text"],
+.input-box input[type="date"] {
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 18px;
   width: 100%;
 }
 .input-box i {
-  margin-right: 5px; /* Space between the icon and the input field */
+  margin-right: 5px;
 }
-
 .swap-btn {
   background: none;
   border: none;
@@ -280,7 +291,6 @@ export default {
   right: -23px;
   top: 36px;
 }
-
 .search-button {
   display: block;
   margin: 20px auto;
@@ -291,7 +301,6 @@ export default {
   color: white;
   border: none;
 }
-
 .multi-city-segment {
   display: flex;
   gap: 10px;
@@ -299,11 +308,9 @@ export default {
   width: 100%;
   justify-content: flex-start;
 }
-
 .multi-city-segment .input-group {
   justify-content: flex-start;
 }
-
 .multi-city-segment button {
   background-color: #007bff;
   color: white;
@@ -315,20 +322,12 @@ export default {
   height: 40px;
   border-radius: 50%;
 }
-
-/* New CSS for radio button alignment */
 .trip-type label {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the radio button labels */
+  justify-content: center;
 }
-
 input[type="radio"] {
   margin-right: 5px;
-}
-
-/* Align other radio buttons to the left */
-input[type="radio"]:not(.trip-type input[type="radio"]) {
-  text-align: left;
 }
 </style>

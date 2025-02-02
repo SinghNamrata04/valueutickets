@@ -4,12 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port 7007",
+    "dev": "vite --port 7008",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.9",
     "font-awesome": "^4.7.0",
+    "node-fetch": "^3.3.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
