@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port 7007",
+    "dev": "vite --port 7008",
     "build": "vite build",
     "preview": "vite preview"
   },

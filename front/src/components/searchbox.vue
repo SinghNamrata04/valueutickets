@@ -142,7 +142,7 @@ import AirportAuto from './AirportAuto.vue'
         </div>
       </div>
       
-      <button class="search-button">Search Flight</button>
+      <router-link to="/results"><button class="search-button">Search Flight</button></router-link>
     </div>
     
     <div v-else>
