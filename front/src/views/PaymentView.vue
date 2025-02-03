@@ -1,13 +1,15 @@
 <script setup>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import Review_Itinerary from '../components/Review_Itinerary.vue'
 </script>
 
 <template>
   <main>
     <Header />
+    <Review_Itinerary/>
     <Footer/>
-  </main>
+</main>
 </template>
 
 <style scoped>
