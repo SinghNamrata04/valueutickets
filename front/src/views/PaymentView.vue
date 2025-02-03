@@ -9,9 +9,9 @@ import Review_Itinerary from '../components/Review_Itinerary.vue'
 <template>
   <main>
     <Header />
+    <Review_Itinerary/>
     <PremiumSupport/>
     <BookingNumSMS/>
-    <Review_Itinerary/>
     <Footer/>
 </main>
 </template>
