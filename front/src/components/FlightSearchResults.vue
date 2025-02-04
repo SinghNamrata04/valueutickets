@@ -10,6 +10,9 @@ import box from './searchbox.vue'
       </div>
     </div>
   </div>
+  <div class="advertisement-wrapper">
+    <img src="@/assets/advertisment.png" alt="Advertisement" class="advertisement-img" />
+  </div>
 </template>
 
 
@@ -214,6 +217,22 @@ body {
   margin-top: 50px;
   margin-bottom: 10px;
   z-index: 100; /* Ensures it’s above the background image */
+}
+
+.advertisement-wrapper {
+  width: 90%;
+  height: 130px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.advertisement-img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 

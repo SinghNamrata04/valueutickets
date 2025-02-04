@@ -1,0 +1,127 @@
+*-------Functionality of View All and View Less Anchor Tag---------*
+
+Code- <a @click="toggleView" class="toggle-link">
+      {{ showAll ? "View Less" : "View All" }}
+    </a>
+
+ Clicking on "View All" shows all destinations images, while "View Less" hides extra items.
+Clicking the toggle button (@click="toggleView") switches between showing more or fewer destinations.
+
+*------Grid Display Component ----*
+
+<div class="grid">
+      <div 
+        v-for="(destination, index) in visibleDestinations" 
+        :key="index" 
+        class="card"
+        :class="{ 'large-card': destination.isLarge }"
+      >
+        <img :src="destination.image" :alt="destination.name" />
+        <div class="overlay">
+          <h3>{{ destination.name }}</h3>
+        </div>
+      </div>
+    </div>
+
+1.Grid Layout (<div class="grid">)
+Contains a dynamic list of destination cards.
+Uses Vue's v-for directive to loop through visibleDestinations.
+2. Dynamic Card (<div class="card">)
+Each destination is rendered inside a <div class="card">.
+:key="index" → Assigns a unique key for Vue’s reactivity.
+:class="{ 'large-card': destination.isLarge }" → Adds large-card class if destination.isLarge is true.
+3. Image (<img>)
+:src="destination.image" → Binds the image source dynamically.
+:alt="destination.name" → Sets an accessible alt text for the image.
+4. Overlay (<div class="overlay">)
+Contains the destination name inside an <h3> tag.
+Ensures text is visible over the image.
+This code dynamically generates a responsive grid of travel destination cards with images and titles, adjusting the size based on isLarge.
+
+*-------Hover Effect--------*
+
+Code-.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+The .overlay is initially hidden (opacity: 0).
+On hovering (.card:hover .overlay), the overlay gradually appears (opacity: 1).
+The overlay contains text with a dark semi-transparent background, ensuring readability.
+A smooth transition effect (0.3s ease) makes the appearance more fluid.
+
+*----- Use of import in images----*
+
+Code-import LondonImage from '@/assets/images/London_D.jpg';
+import ParisImage from '@/assets/images/Paris_D.jpg';
+import JapanImage from '@/assets/images/japan_D.jpg';
+import CancunImage from '@/assets/images/Cancun_D.jpg';
+import SanJuanImage from '@/assets/images/maxico_D.jpg';
+
+This code imports images from the project's assets folder for use in a vue js or JavaScript-based application. Each image represents a different location and is assigned to a variable for easy reference.
+
+*------Use of grid------*
+
+Code-.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 250px auto;
+  gap: 15px;
+  align-items: center;
+  margin-top: 50px; 
+}
+
+display: grid; → Defines a CSS Grid layout.
+grid-template-columns: repeat(3, 1fr); → Creates 3 equal columns.
+grid-template-rows: 250px auto; → First row is 250px, second row adjusts automatically.
+gap: 15px; → Adds 15px space between grid items.
+align-items: center; → Aligns items vertically in the center.
+margin-top: 50px; → Adds 50px space above the grid.
+
+*-----Computed Property-------*
+
+Code- computed: {
+  visibleDestinations() {
+    return this.showAll ? this.destinations : this.destinations.slice(0, 5);
+  }
+}
+
+Uses computed properties to control how many destinations are displayed.
+
+*-----. Data Properties----*
+
+code-data() {
+  return {
+    showAll: false, // Controls whether all destinations are shown
+    destinations: [ /* Array of travel destinations */ ]
+  };
+}
+
+Stores an array of destination objects (name, image, and size).
+
+*---- Method-----*
+
+Code- methods: {
+  toggleView() {
+    this.showAll = !this.showAll;
+  }
+}
+
+toggle function to expand/collapse the list.
+Toggles between showing 5 destinations or all destinations.
+
+
+

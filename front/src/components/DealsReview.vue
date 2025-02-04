@@ -25,7 +25,7 @@
     </div>
 
     <!-- Reviews Section -->
-    <h2 class="section-title-2">Reviews & Ratings</h2>
+    <h2 class="section-title">Reviews & Ratings</h2>
     <div class="reviews">
       <div v-for="(review, index) in reviews" :key="index" class="review-card">
         <div class="review-header">
@@ -111,19 +111,13 @@ export default {
 
 /* Section Title */
 .section-title {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 24px;
   margin-bottom: 20px;
+  margin-top:20px;
   text-align: center;
-  color: #333;
+  color: #000;
   text-decoration:underline;
-}
-.section-title-2{
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
+  font-weight:600;
 }
 
 /* Best Deals Section */
@@ -161,14 +155,14 @@ export default {
 
 .deal-price {
   text-align: center;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   
 }
 .price{
-  margin-top: -1.75rem;
+  margin-top: -2.2rem;
 }
 
-.deal-price span {
+.deal-price span-deal {
   font-size: 16px;
   color: #777;
   margin-bottom: 20px;
@@ -178,7 +172,7 @@ export default {
   font-size: 22px; 
   color: #ff5722;
   display: block;
-  margin-left: 22rem;
+  margin-left: 25rem;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -307,41 +301,64 @@ export default {
   font-size: 14px;
 }
 /*-----------------Responsive Design of Best Deals Section----------------*/
-@media(max-width:992px){
-/* Best Deals Section */
+@media(max-width:1200px){
 .flight-deals {
   padding: 10px;
-  width: 90%; /* Center content */
+  width: 95%; 
 }
 .route {
-  margin-left: 20px;
+  font-weight:600;
+  font-size: 22px;
+  margin-left: 10px;
 }
 .details {
-  margin-left: 20px;
+  margin-left: 10px;
+  font-size: 18px;
 }
 .deal-price strong {
-  margin-left: 15rem;
+  font-size: 22px;
+  margin-left: 18rem;
+   margin-bottom: 38px;
 }
 .book-now {
- 
   margin-right: 20px
 }
-.deal-price span {
- 
-  margin-right:4rem;
-  }
+
 }
-   
+@media(max-width:992px){
+.flight-deals {
+  padding: 10px;
+  width: 95%; 
+}
+.route {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.details {
+  margin-left: 10px;
+  font-size: 16px;
+}
+.deal-price strong {
+  font-size: 20px;
+  margin-left: 18rem;
+   margin-bottom: 38px;
+}
+.book-now {
+  margin-right: 20px
+}
+}
 @media(max-width:768px){
 .flight-deals {
   padding: 10px;
   width: 95%; 
 }
 .route {
+  font-size: 20px;
   margin-left: 10px;
 }
 .details {
   margin-left: 10px;
+  font-size: 16px;
 }
 .deal-price strong {
   font-size: 20px;
@@ -350,6 +367,11 @@ export default {
 }
 .book-now {
   margin-right: 20px
+}
+.Span_deal{
+  font-size:12px;
+  margin-right: 4rem;
+  
 }
 }
 @media(max-width:675px){
@@ -378,7 +400,7 @@ export default {
   margin-left: 10px;
 }
 }
-@media(max-width:425px){
+@media(max-width:550px){
  .section-title {
   font-size: 24px;
   margin: 20px auto;
@@ -387,7 +409,7 @@ export default {
 }
 .flight-deals {
   padding: 10px;
-  width: 100vw; 
+  width: 98vw; 
   margin: 10px;
   
 }
@@ -434,21 +456,50 @@ export default {
 }
 
 /*-----------------Responsive Design for Review Section----------------*/
-@media(max-width:992px){
+@media(min-width:768px){
 .reviews {
-  gap: 40px;
-  width: 400px;
+ flex-wrap: nowrap; /* Wrap for One Row */
 }
-
+ .review-card {
+     flex: 1; /* Maintain Equal width */
+    min-width: 250px; /*  fix minimum width of card */
+    max-width: 350px; /* Set Max width for balancing  cards  */
+    
+  }
 }
 @media(max-width:425px){
 .reviews {
-  width: 200px; 
+  width: 90%; 
   margin: 10px auto;
   align-item: center;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
+}
+@media(max-width:922px){
+ .reviews {
+  width: 90%; 
+  margin: 10px auto;
+  align-item: center;
+  grid-template-row: repeat(auto-fit, minmax(220px, 1fr));
+  gap:10px;
+}}
 
+@media (max-width: 768px) {
+  .reviews {
+    display: grid;
+    justify-content: center; /* Grid container center*/
+    gap: 10px; 
+    grid-template-columns: 1fr; /* set cars in column*/
+    width: 90%; /* reduce container width */
+    max-width: 500px;
+    margin: 0 auto; /* Center align */
+  }
+
+  .review-card {
+    width: 100%; /* adjust card according to parent */
+    max-width: 400px; /* Set cars max width*/
+    margin: 0 auto; /* set individual card in center*/
+  }
 }
 
 </style>
