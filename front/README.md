@@ -20,6 +20,8 @@ npm install
 
 ```sh
 npm install font-awesome
+npm install axios
+npm install node-fetch
 ```
 
 ### Compile and Hot-Reload for Development

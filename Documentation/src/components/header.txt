@@ -1,0 +1,206 @@
+Header Bar Component Documentation
+
+Structure:
+1.Logo
+Displays the company logo on the left side of the navigation bar
+2.Menu Icon (Mobile Devices)
+A hamburger-style icon that toggles the visibility of the navigation links when clicked.
+
+3.Navigation Links
+Includes links to key website sections:
+Home
+My Booking
+Blogs
+Packages
+Login or Signup button 
+flags Dropdown: Displays a list of country flags that users can select. When a flag is clicked, it updates the selected flags.
+
+
+Script:
+
+1.Menu Toggle: Toggles the menu visibility on mobile devices.
+2.Dropdown Toggle: Opens and closes the Flag selection dropdown.
+3.Flag Selection: Changes the selected flag and closes the dropdown upon selection.
+4.Close Dropdown on Outside Click: Closes the dropdown if the user clicks outside of it
+
+export default {
+  data() {
+    return {
+      logo: logoPath, 
+      isMenuActive: false,
+      isDropdownActive: false,
+      isRotated: false, 
+      selectedFlag: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg", 
+      flags: [
+        { name: "France", url: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" },
+        { name: "USA", url: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" },
+        { name: "India", url: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" },
+        { name: "Mexico", url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" },
+      ],
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuActive = !this.isMenuActive;
+    },
+    toggleDropdown() {
+      this.isDropdownActive = !this.isDropdownActive;
+      this.isRotated = !this.isRotated;
+    },
+    changeFlag(flagUrl) {
+      this.selectedFlag = flagUrl;
+      this.isDropdownActive = false; // Close the dropdown after selecting a flag
+    },
+    closeDropdownOnClickOutside(event) {
+      if (
+        !event.target.closest(".dropdown") &&
+        !event.target.closest(".menu-icon")
+      ) {
+        this.isDropdownActive = false;
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener("click", this.closeDropdownOnClickOutside);
+  },
+  beforeUnmount() {
+    window.removeEventListener("click", this.closeDropdownOnClickOutside);
+  },
+};
+
+
+Styles:
+
+The component uses CSS for styling and imports external CSS libraries:
+•  Bootstrap 4.6.2
+
+1.Global Styles
+Reset margins, padding, and box-sizing for consistency across browsers.
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+2.Main Navigation Bar
+   The navigation bar uses flex for layout, aligning the logo and menu items. 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  position: relative;
+  background-color: #F9F2F2;
+}
+
+3.Navigation Links:The links are styled to be bold and black by default, with a background change and underline on hover. 
+  The login button is styled with a blue background.
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  font-weight: 800;
+  padding: 2px 1px;
+  border-radius: 4px;
+}
+
+.login-btn {
+  padding: 8px 18px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: #007bff;
+}
+
+4.Dropdown Menu:The dropdown shows a list of country flags when clicked, and the selected flag is displayed with a rotating arrow.
+
+.dropdown img {
+  width: 35px;
+  height: 35px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: -30px;
+  background-color: #F9F2F2;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+Responsive Design:
+Tablet (max-width: 1024px): The navigation links stack vertically, and the menu icon becomes visible.
+Mobile (max-width: 480px): The logo and text size adjust for smaller screens.
+
+@media (max-width: 1024px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0px 30px;
+    position: absolute;
+    top: 79px;
+    left: 0;
+    background-color: #F9F2F2;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 60px;
+  }
+
+  .dropdown img {
+    width: 30px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

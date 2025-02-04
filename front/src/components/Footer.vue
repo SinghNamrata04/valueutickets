@@ -234,7 +234,7 @@ export default {
 
 .order {
   display: flex;
-  gap: 50px;
+  gap: 20px;
   list-style: none;
 }
 
@@ -254,7 +254,7 @@ export default {
 
 .payment-icons {
   display: flex;
-  gap: 30px;
+  gap: 10px;
 }
 
 .payment-icons img {

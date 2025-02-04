@@ -2,10 +2,10 @@
   <div class="mod-se-box mod-se-psng" id="passengerPopup">
     <div class="w-100-fl se-psng">
       <div class="w-100-fl se-psng-cont" @click="togglePopup">
-        <span><i class="fas fa-user">&nbsp&nbsp</i>
+        <span><i class="fas fa-user"></i> 
           <span id="txtPaxDetails">{{ passengerDetails }}</span> 
-          &nbsp&nbsp&nbsp<i class="fa fa-angle-up"></i>
         </span>
+        <i :class="{'fa fa-angle-up': isPopupVisible, 'fa fa-angle-down': !isPopupVisible}" class="angle-icon"></i>
       </div>
       <div v-if="isPopupVisible" class="psg_dls">
         <div class="popup-content">
@@ -88,7 +88,7 @@ export default {
     passengerDetails() {
       const totalTravellers = this.adultCount + this.childCount + this.infantCount;
       const cabin = this.cabinClasses.find(c => c.value === this.selectedCabin)?.label || "Economy";
-      return `${totalTravellers} Traveller${totalTravellers > 1 ? 's' : ''}, ${cabin}`;
+      return `${totalTravellers}${totalTravellers > 1 ? 's' : ''}, ${cabin}`;
     },
   },
   methods: {
@@ -96,12 +96,20 @@ export default {
       this.isPopupVisible = !this.isPopupVisible;
     },
     increaseCount(type) {
+      const totalTravellers = this.adultCount + this.childCount + this.infantCount;
+      if (totalTravellers >= 9) return;
+      
       if (type === 'adult') this.adultCount++;
       else if (type === 'child') this.childCount++;
-      else if (type === 'infant') this.infantCount++;
+      else if (type === 'infant' && this.infantCount < this.adultCount) this.infantCount++;
     },
     decreaseCount(type) {
-      if (type === 'adult' && this.adultCount > 0) this.adultCount--;
+      if (type === 'adult' && this.adultCount > 1) {
+        this.adultCount--;
+        if (this.infantCount > this.adultCount) {
+          this.infantCount = this.adultCount;
+        }
+      }
       else if (type === 'child' && this.childCount > 0) this.childCount--;
       else if (type === 'infant' && this.infantCount > 0) this.infantCount--;
     },
@@ -118,17 +126,36 @@ export default {
 };
 </script>
 
+
 <style scoped>
 #passengerPopup {
   font-family: 'Arial', sans-serif;
-  font-size: 14px;
-  border: 1px solid #ddd;
+  font-size: 16px;
   padding: 10px;
-  border-radius: 8px;
+  margin-top: 0px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #ffffff;
   position: relative;
+  width: 200px;
+  height: 50px;
   z-index: 9000;
 }
-
+.w-100-fl.se-psng-cont {
+  position: relative;
+  margin-top: 3px;
+}
+.w-100-fl.se-psng-cont i{
+  margin-right: 3px;
+}
+.w-100-fl.se-psng-cont span{
+  cursor: pointer;
+}
+.angle-icon {
+  position: absolute;
+  right: -11px;
+  top: 3px;
+}
 .psg_dls {
   position: absolute;
   top: 100%;
@@ -137,7 +164,6 @@ export default {
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 100%;
   z-index: 9000;
 }
 
@@ -163,7 +189,7 @@ export default {
 
 .pass_bx label {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   display: block;
   margin-bottom: 5px;
 }
@@ -172,6 +198,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.angle-icon {
+  float: right;
 }
 
 .input-group .btn {
@@ -192,7 +222,7 @@ export default {
   text-align: center;
   border: none;
   background-color: transparent;
-  font-size: 14px;
+  font-size: 18px;
   width: 40px;
 }
 
@@ -210,17 +240,21 @@ export default {
 
 .radio input {
   margin-right: 10px;
+  width: 18px;
+  height: 18px;
 }
 
 .radio label {
-  font-size: 14px;
+  margin-top: 0px;
+  font-size: 17px;
+  margin-bottom: 0px;
 }
 
 .psg_dls_btn .btn {
   width: 100%;
   background-color: #007bff;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   border-radius: 4px;
   border: none;
   cursor: pointer;

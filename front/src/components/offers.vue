@@ -72,22 +72,13 @@ export default {
 </script>
 
 <style scoped>
-.offers-container {
-  margin: 70px auto;
-  max-width: 1200px;
-  padding: 20px;
-  border-radius: 12px;
-  background:rgba(249, 249, 249, 0);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
-  z-index: 1;
-  position: relative;
-}
 
 .offers-title {
   text-align: center;
   font-size: 24px;
   color: #000;
   font-weight: bold;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -95,6 +86,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .offer-card {
